@@ -10,7 +10,7 @@ app.get("/todos",async (req,res)=>{
     return res.send(
         `
         <ul>
-        ${data.map((item)=>`<li>${item.title}</li>`).join("")}
+        ${data.map((item)=>`<li class="${item.completed ? "line-through" : '' }">${item.title}</li>`).join("")}
         </ul>
         `
     )
