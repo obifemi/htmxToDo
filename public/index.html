@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX</title>
+</head>
+<body class="text-center">
+    index page
+    <h1 class="text-4xl">TODO</h1>
+
+    <button class="bg-green-500 text-white p-2 rounded" hx-get="/todos"
+    hx-target="#results"
+    >
+fetch todos
+    </button>
+
+    <div id="results"></div>
+</body>
+</html>
