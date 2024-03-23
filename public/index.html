@@ -14,10 +14,25 @@
 
     <button class="bg-green-500 text-white p-2 rounded" hx-get="/todos"
     hx-target="#results"
+    hx-indicator="#loading"
     >
 fetch todos
     </button>
 
+    <div class="text-bold text-xl htmx-indicator" id="loading">Loading...</div>
+
     <div id="results"></div>
+
+
+    <div class="mx-auto bg-white rounded shadow p-6">
+        <h2 class="my-3 green">Add New ToDo</h2>
+        <br>
+        <hr>
+        <form hx-post="/todos" hx-target="#results" hx-indicator="#loading">
+            <input type="text" name="title" placeholder="title" class="border rounded  py-2 px-4 w-full my-2" id="title">
+            <!-- <input type="text" name="description" placeholder="description" class="border rounded py-2 px-4 w-full"> -->
+            <button type="submit" class="border rounded bg-blue-500 text-white w-full py-2 px-4 my-2">Add</button>
+        </form>
+    </div>
 </body>
 </html>
