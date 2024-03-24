@@ -37,6 +37,21 @@ fetch todos
         </form>
     </div>
 
+    <div class="mx-auto bg-white rounded shadow p-6">
+<h2 class="text-2xl mb-4">Search</h2>
+<input
+type="search"
+placeholder="Search"
+class="border rounded py-2 px-4 w-full"
+id="search"
+name="search"
+hx-trigger="input changed delay: 500ms, search"
+hx-post="/todo-search"
+hx-indicator="#loading"
+hx-target="#results"
+/>
+</div>
+
     <div hx-trigger="load, todo-created from:body"  hx-get="/todos" hx-target="#results"
     hx-indicator="#loading">footer</div>
 

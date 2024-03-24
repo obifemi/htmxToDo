@@ -26,6 +26,26 @@ app.post("/todos",async (req,res)=>{
     return res.status(204).send("post request")
 })
 
+
+app.post("/todo-search", async (req, res) => { 
+    const search = req.body.search.toLowerCase(); 
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=10");
+    
+    let data = await response.json();
+    
+    data = [...customTodo,...data]
+    data = data.filter((todo) => todo.title.toLowerCase().includes (search));
+    return res.send(
+        `
+        <ul>
+        ${data.map((item)=>`<li class="${item.completed ? "line-through" : '' }">${item.title}</li>`).join("")}
+        </ul>
+        `
+    )
+    });
+
+
+
 app.listen(3000, ()=>{
     console.log("server is listening at port 3000")
 })
