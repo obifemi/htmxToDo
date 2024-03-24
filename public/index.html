@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTMX</title>
+
+ 
 </head>
 <body class="text-center">
     index page
@@ -34,5 +36,16 @@ fetch todos
             <button type="submit" class="border rounded bg-blue-500 text-white w-full py-2 px-4 my-2">Add</button>
         </form>
     </div>
+
+    <div hx-trigger="load, todo-created from:body"  hx-get="/todos" hx-target="#results"
+    hx-indicator="#loading">footer</div>
+
+
+    <script type="text/javascript">
+        document.body.addEventListener("todo-created", () => {
+        console.log("click"); 
+        });
+        </script>
+
 </body>
 </html>

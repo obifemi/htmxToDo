@@ -21,7 +21,8 @@ app.get("/todos",async (req,res)=>{
 let customTodo = []
 
 app.post("/todos",async (req,res)=>{
-    customTodo  = [ {title: req.body.title, completed: false},...customTodo];    
+    customTodo  = [ {title: req.body.title, completed: false},...customTodo];  
+    res.setHeader("HX-Trigger", "todo-created");  
     return res.status(204).send("post request")
 })
 
